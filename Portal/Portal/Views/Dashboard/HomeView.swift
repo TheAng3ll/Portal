@@ -19,7 +19,7 @@ struct HomeView: View {
                 }
                 .tag(1)
             
-            Text("Documentos")
+            DocumentsView()
                 .tabItem {
                     Label("Documentos", systemImage: "doc.text.fill")
                 }

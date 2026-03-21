@@ -12,8 +12,9 @@ class LoginViewModel: ObservableObject {
     
     private let authService: AuthService
     
-    init(authService: AuthService = .shared) {
-        self.authService = authService
+    /// `authService` opcional para evitar referenciar `AuthService.shared` en el valor por defecto del parámetro (aislamiento del MainActor).
+    init(authService: AuthService? = nil) {
+        self.authService = authService ?? AuthService.shared
     }
     
     var canLogin: Bool {
