@@ -1,8 +1,12 @@
 import SwiftUI
 
 struct LoginView: View {
-    @StateObject private var viewModel = LoginViewModel()
-    
+    @StateObject private var viewModel: LoginViewModel
+
+    init(authService: AuthService = .shared) {
+        _viewModel = StateObject(wrappedValue: LoginViewModel(authService: authService))
+    }
+
     var body: some View {
         GeometryReader { geometry in
             ZStack {

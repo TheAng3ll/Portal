@@ -8,8 +8,7 @@ class DashboardViewModel: ObservableObject {
     @Published var properties: [Property] = []
     @Published var isLoading = false
     @Published var errorMessage: String?
-    
-    // Datos de ejemplo para la gráfica de rendimiento
+
     let performanceData: [PerformancePoint] = [
         PerformancePoint(month: "Ene", value: 100),
         PerformancePoint(month: "Feb", value: 102),
@@ -24,32 +23,24 @@ class DashboardViewModel: ObservableObject {
         PerformancePoint(month: "Nov", value: 120),
         PerformancePoint(month: "Dic", value: 125)
     ]
-    
+
     init() {
         self.properties = Property.sampleData
     }
-    
+
     func loadData() async {
         isLoading = true
         errorMessage = nil
-        
-        // Simular llamada a API
+
         try? await Task.sleep(nanoseconds: 1_000_000_000)
-        
-        // En producción, esto vendría de la API
+
         self.properties = Property.sampleData
         self.summary = .sample
-        
+
         isLoading = false
     }
-    
+
     func refreshData() async {
         await loadData()
     }
-}
-
-struct PerformancePoint: Identifiable {
-    let id = UUID()
-    let month: String
-    let value: Double
 }
