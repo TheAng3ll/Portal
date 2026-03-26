@@ -5,7 +5,35 @@
 *.xcuserstate
 *.xcuserdatad
 xcuserdata/
+*.xcworkspace/xcuserdata/
 
 # Build
 build/
 DerivedData/
+*.ipa
+*.app.dSYM.zip
+
+# Local .NET SDK (dotnet-install.sh)
+.dotnet/
+
+# SQLite desarrollo backend
+**/portal_dev.db
+**/portal_design.db
+
+# VSCode local
+.vscode/
+
+# MCP local
+mcp-xcode/
+
+# Archivos personales/CVs
+*.pdf
+
+# Scripts temporales
+cv_*.py
+
+# Docker local
+docker-compose.yaml
+
+# Backend (en proyecto separado)
+backend/
